@@ -1,5 +1,4 @@
 #!/bin/sh
-
 sudo groupadd www-group
 sudo useradd -m -s /bin/bash -g www-data www-prova
 echo "Instalação e configurações"
@@ -49,3 +48,4 @@ echo '<VirtualHost *:80>
 sudo mv /etc/apache2/sites-enabled/000-default.conf /etc/apache2/sites-enabled/bkp-default.conf
 sudo ln -s /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-enabled/000-default.conf
 sudo systemctl restart apache2
+echo "Instalado com sucesso, basta acessar http://$(hostname -I)/perguntas"
