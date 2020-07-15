@@ -51,6 +51,10 @@ man apache2
 man nslookup
 
 https://ubuntu.com/server/docs/web-servers-apache
+
 http://httpd.apache.org/docs/2.4/
+
 https://www.php.net/manual/pt_BR/install.unix.debian.php
+
 https://stackoverflow.com/questions/12142172/apache-shows-php-code-instead-of-executing-it#12142315
+
