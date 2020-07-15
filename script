@@ -1,7 +1,7 @@
 #!/bin/sh
 
 sudo groupadd www-group
-sudo useradd -f /bin/bash -g www-group www-prova
+sudo useradd -f /bin/bash -g www-data www-prova
 echo "Instalação e configurações"
 sudo apt update && sudo apt install -y openssh-server apache2 php libapache2-mod-php && sudo apt clean
 sudo echo "PermitRootLogin no" | tee -a /etc/ssh/sshd_config
@@ -18,8 +18,8 @@ Timeout 300
 KeepAlive On
 MaxKeepAliveRequests 100
 KeepAliveTimeout 5
-User www-prova
-Group www-group
+User ${APACHE_RUN_USER}
+Group ${APACHE_RUN_GROUP}
 HostnameLookups Off
 ErrorLog ${APACHE_LOG_DIR}/error.log
 LogLevel warn
