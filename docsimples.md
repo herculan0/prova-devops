@@ -8,9 +8,15 @@
 
 OBS:
 Instale o openssh-server, 
+
 acesse a máquina via: ssh usuario@meuip
+
 Clone o repositório: https://github.com/herculan0/prova-devops
-Execute o script
+
+Entre na pasta: cd prova-devops
+
+Execute o script: ./script
+
 Digite sua senha
 
 Assim que o script finalizar, basta acessar o http://meuip/perguntas
