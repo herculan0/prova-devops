@@ -1,7 +1,7 @@
 #!/bin/sh
 
 sudo groupadd www-group
-sudo useradd /bin/bash -g www-group www-prova
+sudo useradd -f /bin/bash -g www-group www-prova
 echo "Instalação e configurações"
 sudo apt update && sudo apt install -y openssh-server apache2 php libapache2-mod-php && sudo apt clean
 sudo echo "PermitRootLogin no" | tee -a /etc/ssh/sshd_config
