@@ -3,7 +3,7 @@ sudo groupadd www-group
 sudo useradd -m -s /bin/bash -g www-data www-prova
 echo "Instalação e configurações"
 sudo apt update && sudo apt install -y openssh-server apache2 php libapache2-mod-php && sudo apt clean
-sudo echo "PermitRootLogin no" | tee -a /etc/ssh/sshd_config
+sudo echo "PermitRootLogin no" | sudo tee -a /etc/ssh/sshd_config
 sudo systemctl restart sshd
 sudo a2dismod mpm_event && a2enmod mpm_prefork &&  a2enmod php7.2
 sudo ufw allow "Apache Full"
