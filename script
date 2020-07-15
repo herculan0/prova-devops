@@ -48,4 +48,4 @@ echo '<VirtualHost *:80>
 sudo mv /etc/apache2/sites-enabled/000-default.conf /etc/apache2/sites-enabled/bkp-default.conf
 sudo ln -s /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-enabled/000-default.conf
 sudo systemctl restart apache2
-echo "Instalado com sucesso, basta acessar http://$(hostname -I)/perguntas"
+echo "Instalado com sucesso, basta acessar http://$(ip addr | grep 'state UP' -A2 | tail -n1 | awk '{print $2}' | cut -f1 -d'/')/perguntas"
