@@ -15,7 +15,7 @@ Clone o repositório: https://github.com/herculan0/prova-devops
 
 Entre na pasta: cd prova-devops
 
-Execute o script: ./script
+Execute o script: ./instalar.sh
 
 Digite sua senha
 
