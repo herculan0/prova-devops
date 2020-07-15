@@ -1,61 +1,51 @@
  <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
-    <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-
-    <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-    <!-- Popper JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-
-    <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 </head>
-
 <body style="padding-left: 20%;padding-right: 20%;padding-top:3%">
     <?php
-        
-
         $a = 50;
         $b = 40;
         $c = 55;
         $resultado = 0;
-
-        if ($a > 10 && $b > 10 && $b < $c) {
+	if ($a > 10 && $b > 10 && $b < $c) 
+	{
             $resultado = 10 + $a;
-            if ($resultado > 15) {
+	    if ($resultado > 15) 
+	    {
                 $resultado = $resultado -$c + $b;
-            } else {
-                $resultado += $c - $b + $a
+	    } 
+	    else 
+	    {
+                $resultado += $c - $b + $a;
             }
-        } elseif ($b < 30 && $b < $c && $b + $c == 52) {
+	} 
+	elseif ($b < 30 && $b < $c && $b + $c == 52) 
+	{
             $resultado = $a + $c;
-            if ($resultado < 30) {
+	    if ($resultado < 30) 
+	    {
                 $resultado = 14;
             }
-        
-
-        
-
         $hostname=$_SERVER['SERVER_NAME'];
-
-        if(empty($_GET['parametro'])){
+	    if(empty($_GET['parametro']))
+	    {
             exit("
                 <div class='alert alert-danger'>
                 <strong>OPS!!</strong> Pâmetro não informado, para acessar utilize informe o parametro na URL <br> <a href='http://$_SERVER[HTTP_HOST]/perguntas/?parametro=X'>http://$_SERVER[HTTP_HOST]/perguntas/?parametro=X</a> <hr/> 
                 </div>
             ");
-        }
-
+            }
+	}
         $parametro=$_GET['parametro'];
         $document_root=$_SERVER['SCRIPT_FILENAME'];
-        
-        if($parametro != $resultado) {
-
+	if($parametro != $resultado) 
+	{
             exit("
                 <div class='alert alert-danger'>
                     <strong>OPS!!</strong> O valor de parametro=<strong>$parametro</strong> está incorreto!!!!
@@ -65,17 +55,15 @@
                  </div>       
             ");
 
-        } else {
-
+	} 
+	else 
+	{
             echo "<div class='alert alert-success'>
                     Parabéns, você acertou o valor de paramêtro, agora responda as perguntas a seguir.
                   </div>";
-
         }
     ?>
-
     <h2>Perguntas</h2>
-
     <div class="alert alert-warning">
         Ao clicar no botão "Salvar Respostas", baixe o arquivo.
     </div>
