@@ -1,0 +1,18 @@
+#!/bin/sh
+apt install -y openssh-server apache2 php libapache2-mod-php
+echo "PermitRootLogin no" | tee -a /etc/ssh/sshd_config
+systemctl restart sshd
+a2dismod mpm_event && a2enmod mpm_prefork &&  a2enmod php7.2
+ufw allow "Apache Full"
+systemctl restart apache2
+git clone https://github.com/herculan0/prova-devops $HOME
+cd '$HOME'/prova-devops
+echo '<FilesMatch \.php$>
+SetHandler application/x-httpd-php
+</FilesMatch>
+<Directory '$HOME'/prova-devops>
+Options Indexes FollowSymLinks
+AllowOverride None
+Require all granted
+</Directory>' | tee -a /etc/apache2/apache2.conf
+sed -i 's/DocumentRoot \/var\/www/DocumentRoot \/'$HOME'\/prova-devops' /etc/apache2/sites-enabled/000-default.conf
